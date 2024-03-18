@@ -1,5 +1,7 @@
-altair
-numpy
-pandas
-pydeck
 streamlit
+langchain
+pysqlite3-binary
+tiktoken
+chromadb
+openai
+python-dotenv
