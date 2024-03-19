@@ -13,20 +13,19 @@ def generate_response(uploaded_doc, openai_api_key, query_text):
     if uploaded_doc is not None:
         # Read the uploaded PDF document
         pdf_reader = PdfReader(uploaded_doc)
-        text = ""
+        doc_text = ""
         # Extract text from each page
         for page in pdf_reader.pages:
-            text += page.extract_text()
-
-        documents = [text]
+            doc_text += page.extract_text()
         
         # Split documents by chunk size
         text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-        texts = text_splitter.create_documents(documents)
-        # Select embeddings
+        text = text_splitter.create_documents(doc_text)
+
+        # Create embeddings
         embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
         # Create a vectorstore from documents
-        db = Chroma.from_documents(texts, embeddings)
+        db = Chroma.from_documents(text, embeddings)
         # Create retriever interface
         retriever = db.as_retriever()
         # Create QA chain
