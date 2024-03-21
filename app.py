@@ -36,12 +36,11 @@ def main():
             extracted_text = process_pdf(uploaded_doc)
         else:
             extracted_text = process_image(file_bytes)
-
-    query = st.text_input('Enter your question about the document:', disabled=not uploaded_doc)
    
     result = None
     
     with st.form('myform', clear_on_submit=True):
+        query = st.text_input('Enter your question about the document:', disabled=not uploaded_doc)
         openai_api_key = OPENAI_KEY or st.text_input('OpenAI API Key', type='password', disabled=not (uploaded_doc and query))
         submitted = st.form_submit_button('Submit', disabled=not(uploaded_doc and query))
         if submitted and openai_api_key.startswith('sk-') and extracted_text:
