@@ -1,6 +1,9 @@
-# Welcome to  Quick View! 📄🕵🏻
+# Welcome to  Quick View! 📄🕵🏻 
 
-## Setup
+Simply upload a document (PDF, PNG, or JPG), and ask any questions you have about them. 
+Our advanced LangChain 🦜️🔗 and OpenAI technology will provide you with insightful answers while retaining context.
+
+## Dev Setup
 
 ### Install dependencies
 
