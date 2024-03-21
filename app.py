@@ -51,8 +51,9 @@ def main():
                 del openai_api_key
 
     st.subheader("Result")
-    if result:
-        st.write(result)
+    with st.container(height=200):
+        if result:
+            st.write(result)
 
     # Instructions for getting an OpenAI API key
     st.subheader("How to get your OpenAI API key")
