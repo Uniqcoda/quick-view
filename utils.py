@@ -54,6 +54,5 @@ def generate_response(doc_text, openai_api_key, query_text):
         return qa.run(query_text)
     except Exception as e:
         print(f"An error occurred with OpenAI: {e}")
-        print(type(e))
         return f"An error occurred with OpenAI"
    
