@@ -31,15 +31,11 @@ def main():
     
     if uploaded_doc is not None:
         file_bytes = uploaded_doc.read()
-        st.subheader("Uploaded doc")
-        with st.container(height=450):
-            # Process the file based on type
-            if uploaded_doc.type == "application/pdf":
-                st.write("Can't display pdf at the moment")
-                extracted_text = process_pdf(uploaded_doc)
-            else:
-                st.image(uploaded_doc, width=400)
-                extracted_text = process_image(file_bytes)
+        # Process the file based on type
+        if uploaded_doc.type == "application/pdf":
+            extracted_text = process_pdf(uploaded_doc)
+        else:
+            extracted_text = process_image(file_bytes)
 
     query = st.text_input('Enter your question about the document:', disabled=not uploaded_doc)
    
