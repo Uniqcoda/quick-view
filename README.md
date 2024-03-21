@@ -4,7 +4,7 @@
 
 ### Install dependencies
 
-Create a virtual environment. The common way to name virtual environments is `env`. But you can give it a different name to easily identify it. So, we would use `.my_venv` instead.
+Create a virtual environment.
 ```
 python3 -m venv .my_venv
 ```
@@ -25,6 +25,23 @@ python3 -m pip install --upgrade pip
 Install dependencies
 ```
 pip install -r requirements.txt
+```
+
+There can be issues with using the pytesseract package. Installing its co-dependencies may fix it:
+```
+tesseract
+tesseract-ocr
+```
+
+Otherwise, ensure tesseract is installed on the local machine:
+Mac
+```
+brew install tesseract
+```
+Ubuntu
+```
+sudo apt install tesseract-ocr
+sudo apt install libtesseract-dev
 ```
 
 ### Add API keys to .env file

@@ -5,3 +5,6 @@ chromadb
 openai
 python-dotenv
 PyPDF2
+opencv-python
+pytesseract
+pillow
